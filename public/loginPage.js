@@ -4,20 +4,20 @@ const userForm = new UserForm();
 
 userForm.loginFormCallback = (data) => {
   ApiConnector.login(data, (response) => {
-    if (response.success === true) {
+    if (response.success) {
       location.reload();
     } else {
-      setLoginErrorMessage("Неверный логин или пароль");
+      userForm.setLoginErrorMessage("Ошибка авторизации. " + response.data);
     }
   });
 };
 
 userForm.registerFormCallback = (data) => {
   ApiConnector.register(data, (response) => {
-    if (response.success === true) {
+    if (response.success) {
       location.reload();
     } else {
-      setRegisterErrorMessage("Данный пользователь уже существует");
+      userForm.setRegisterErrorMessage("Ошибка регистрации. " + response.data);
     }
   });
 };
