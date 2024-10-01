@@ -40,7 +40,7 @@ moneyManager.addMoneyCallback = (data) => {
       ProfileWidget.showProfile(response.data);
       moneyManager.setMessage(true, "Пополнение прошло успешно");
     } else {
-      moneyManager.setMessage(false, "Ошибка пополнения. " + response.data);
+      moneyManager.setMessage(false, "Ошибка пополнения. " + response.error);
     }
   });
 };
@@ -51,7 +51,7 @@ moneyManager.conversionMoneyCallback = (data) => {
       ProfileWidget.showProfile(response.data);
       setMessage(true, "Конвертация прошла успешно");
     } else {
-      moneyManager.setMessage(false, "Ошибка конвертации. " + response.data);
+      moneyManager.setMessage(false, "Ошибка конвертации. " + response.error);
     }
   });
 };
@@ -62,7 +62,7 @@ moneyManager.sendMoneyCallback = (data) => {
       ProfileWidget.showProfile(response.data);
       moneyManager.setMessage(true, "Перевод прошёл успешно");
     } else {
-      moneyManager.setMessage(false, "Ошибка перевода. " + response.data);
+      moneyManager.setMessage(false, "Ошибка перевода. " + response.error);
     }
   });
 };
@@ -88,7 +88,7 @@ favorites.addUserCallback = (data) => {
     } else {
       favorites.setMessage(
         false,
-        "Ошибка  добавления пользователя в избранное. " + response.data
+        "Ошибка  добавления пользователя в избранное. " + response.error
       );
     }
   });
@@ -105,7 +105,7 @@ favorites.removeUserCallback = (data) => {
         "Удаление пользователя из избранного выполнено успешно"
       );
     } else {
-      favorites.setMessage(false, "Ошибка удаления. " + response.data);
+      favorites.setMessage(false, "Ошибка удаления. " + response.error);
     }
   });
 };
